@@ -22,3 +22,5 @@
 *composer.lock
 
 node_modules
+
+.mysql

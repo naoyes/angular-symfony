@@ -23,7 +23,7 @@ RUN pecl install mcrypt-1.0.3
 
 RUN docker-php-ext-enable mcrypt \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd pdo_pgsql
+    && docker-php-ext-install -j$(nproc) gd pdo_mysql
 
 # Use the default production configuration
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"

@@ -4,6 +4,9 @@ application:
     - "./back-end:/var/www"
   links:
     - database
+  environment:
+    ENV PHP_MEMORY_LIMIT: 512M
+    DATABASE_URL: mysql://nursing-home:dsiupodfsj123b@database:3306/nursing-home
 
 client:
   build: front-end
@@ -13,13 +16,16 @@ client:
     - nginx-back
 
 database:
-  image: postgres:10
+  image: mysql:5.7
   ports:
-    - 5432:5432
+    - 3306:3306
+  volumes:
+    - ./.mysql:/var/lib/mysql
   environment:
-    POSTGRES_PASSWORD: postgres
-    POSTGRES_USER: postgres
-    POSTGRES_DB: symfony_dev
+    MYSQL_ROOT_PASSWORD: root   #ここにroot用のパスワードを記載
+    MYSQL_DATABASE: nursing-home #ここにデータベースを記載
+    MYSQL_USER: nursing-home #ここにユーザ名を記載
+    MYSQL_PASSWORD: dsiupodfsj123b #ここにユーザ用パスワードを記載
 
 nginx-front:
   image: nginx
