@@ -1,4 +1,20 @@
 # Cache and logs (Symfony2)
+/back-end-2/app/cache/*
+/back-end-2/app/logs/*
+!/back-end-2/app/cache/.gitkeep
+!/back-end-2/app/logs/.gitkeep
+
+
+# Assets and user uploads
+/back-end-2/vendor/
+/back-end-2/web/bundles/
+/back-end-2/web/uploads/
+
+# PHPUnit
+/back-end-2/app/phpunit.xml
+/back-end-2/phpunit.
+
+# Cache and logs (Symfony2)
 /back-end/app/cache/*
 /back-end/app/logs/*
 !/back-end/app/cache/.gitkeep
