@@ -34,6 +34,16 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="datetimetz")
+     */
+    private $joinedDate;
+
+    /**
+     * @ORM\Column(type="datetimetz", nullable=true)
+     */
+    private $leftDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,5 +120,29 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getJoinedDate(): ?\DateTimeInterface
+    {
+        return $this->joinedDate;
+    }
+
+    public function setJoinedDate(\DateTimeInterface $joinedDate): self
+    {
+        $this->joinedDate = $joinedDate;
+
+        return $this;
+    }
+
+    public function getLeftDate(): ?\DateTimeInterface
+    {
+        return $this->leftDate;
+    }
+
+    public function setLeftDate(?\DateTimeInterface $leftDate): self
+    {
+        $this->leftDate = $leftDate;
+
+        return $this;
     }
 }
